@@ -7,7 +7,8 @@ license = "MIT"
 description = "an n argument extension to std::mem::swap"
 readme = "README.md"
 repository = "https://github.com/swooping-magpie/swap-n"
-keywords = ["mem"]
+keywords = ["mem", "ptr", "linked-list", "swap", "node"]
+categories = ["embedded", "no-std", "memory-management", "rust-patterns", "algorithm"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
