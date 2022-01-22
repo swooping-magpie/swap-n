@@ -6,13 +6,13 @@
 //!
 //! ```rust
 //! // #[macro_use] extern crate swap_n;
-//! use swap_n;
+//! use swap_n::swap_n;
 //!     
 //! let mut x = 1;
 //! let mut y = 2;
 //! let mut z = 3;
 //!
-//! swap_n::swap_n!(&mut x, &mut y, &mut z);
+//! swap_n!(&mut x, &mut y, &mut z);
 //! ```
 //!
 //!
@@ -20,27 +20,27 @@
 //! Examples of failure:
 //!
 //! ```compile_fail
-//! use swap_n;
+//! use swap_n::swap_n;
 //!
 //! let mut x = 1;
-//! swap::swap_n!(&mut x);
+//! swap_n!(&mut x);
 //! ```
 //!
 //! ```compile_fail
-//! use swap_n;
+//! use swap_n::swap_n;
 //!
 //! let mut x = 1;
-//! swap_n::swap_n!(x);
+//! swap_n!(x);
 //! ```
 //!
 //!
 //!
 //! ```compile_fail
-//! use swap_n;
+//! use swap_n::swap_n;
 //!
 //! let mut x = 1;
 //! let mut y = 1.0;
-//! swap_n::swap_n!(&mut x, &mut y);
+//! swap_n!(&mut x, &mut y);
 //! ```
 //!
 //!
