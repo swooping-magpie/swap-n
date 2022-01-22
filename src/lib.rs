@@ -1,5 +1,51 @@
 #![no_std]
 
+//! Macro to extend core::mem::swap to n elements
+//!
+//! Example usage:
+//!
+//! ```rust
+//! // #[macro_use] extern crate swap_n;
+//! use swap_n;
+//!     
+//! let mut x = 1;
+//! let mut y = 2;
+//! let mut z = 3;
+//!
+//! swap_n::swap_n!(&mut x, &mut y, &mut z);
+//! ```
+//!
+//!
+//!
+//! Examples of failure:
+//!
+//! ```compile_fail
+//! use swap_n;
+//!
+//! let mut x = 1;
+//! swap::swap_n!(&mut x);
+//! ```
+//!
+//! ```compile_fail
+//! use swap_n;
+//!
+//! let mut x = 1;
+//! swap_n::swap_n!(x);
+//! ```
+//!
+//!
+//!
+//! ```compile_fail
+//! use swap_n;
+//!
+//! let mut x = 1;
+//! let mut y = 1.0;
+//! swap_n::swap_n!(&mut x, &mut y);
+//! ```
+//!
+//!
+//!
+
 #[macro_export]
 macro_rules! swap_n{
     ($first:expr, $second:expr, $($e:expr),+) => {
@@ -42,5 +88,19 @@ mod tests {
         assert_eq!(y, 3);
         assert_eq!(z, 1);
         //swap_n!(&mut x);
+    }
+
+    #[test]
+    fn four_elements() {
+        let mut x = 1;
+        let mut y = 2;
+        let mut z = 3;
+        let mut w = 4;
+
+        swap_n!(&mut x, &mut y, &mut z, &mut w);
+        assert_eq!(x, 2);
+        assert_eq!(y, 3);
+        assert_eq!(z, 4);
+        assert_eq!(w, 1);
     }
 }
